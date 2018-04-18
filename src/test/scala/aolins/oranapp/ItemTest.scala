@@ -9,7 +9,7 @@ class ItemTest extends FlatSpec with Matchers {
     Apple.price shouldEqual 0.6
   }
   "Orange" should "be orange for 25p" in {
-    Orange.name shouldEqual "Apple"
+    Orange.name shouldEqual "Orange"
     Orange.price shouldEqual 0.25
   }
 
