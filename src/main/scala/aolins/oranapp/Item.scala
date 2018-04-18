@@ -5,10 +5,10 @@ trait Item {
   def price:BigDecimal
 }
 object Orange extends Item{
-  override def name: String = "Orange"
-  override def price: BigDecimal = 0.25
+  override val name: String = "Orange"
+  override val price: BigDecimal = 0.25
 }
 object Apple extends Item{
-  override def name: String = "Apple"
-  override def price: BigDecimal = 0.6
+  override val name: String = "Apple"
+  override val price: BigDecimal = 0.6
 }
