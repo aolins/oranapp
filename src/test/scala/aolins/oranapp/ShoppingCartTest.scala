@@ -46,6 +46,15 @@ class ShoppingCartTest extends FlatSpec with Matchers {
     cart.total shouldEqual 4.1
   }
 
+  "Discount from Strings" should "work combined" in {
+    val sixOranges = List.fill(6)(Orange)
+    val tenApples = List.fill(10)(Apple)
+
+    val strings = Random.shuffle((sixOranges:::tenApples).map(_.name))
+
+    ShoppingCartFactory.createAndApplyDiscounts(strings) shouldBe (4 * Orange.price + 5 * Apple.price)
+
+  }
 
 
 

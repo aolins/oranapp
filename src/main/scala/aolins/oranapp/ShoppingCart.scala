@@ -1,7 +1,6 @@
 package aolins.oranapp
 
-class ShoppingCart(items: List[Item]) {
-
+class ShoppingCart(val items: List[Item]) {
   def total: BigDecimal = items.foldLeft(0: BigDecimal)((priceAcc, item) => priceAcc + item.price)
 }
 
@@ -21,5 +20,12 @@ object ShoppingCartFactory {
 
 
     new ShoppingCart(filteredItems)
+  }
+
+  def createAndApplyDiscounts(items: List[String]):BigDecimal = {
+    val cart = createCartFromStrings(items)
+    val discountApples = BuyOneGetOneFreeOnApples.calculateDiscount(cart)
+    val discountOranges = ThreeForPriceOfTwoOnOranges.calculateDiscount(cart)
+    cart.total - discountApples - discountOranges
   }
 }
