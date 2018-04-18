@@ -10,12 +10,16 @@ run aolins.oranApp Apple Orange
 
 Allowed items are Apple, Orange.
 Item names are case sensitive; items that have not matched will be discarded.
+
+These offers will be applied
+○ buy one, get one free on Apples
+○ 3 for the price of 2 on Oranges
 """
     )
     if (args == null){
       println("Parameters are not provided. Please re-run.")
     }else{
-      val total = ShoppingCartFactory.createCartFromStrings(args.toList).total
+      val total = ShoppingCartFactory.createAndApplyDiscounts(args.toList)
       println(s"Total cost of your cart is £$total.")
     }
   }
